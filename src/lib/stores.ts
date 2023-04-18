@@ -6,6 +6,6 @@ export type History = Scene[];
 
 export const history = writable<History>([]);
 
-export function pushHistory(scene: Scene) {
+export function pushSceneToHistory(scene: Scene) {
   history.update((h) => [...h, scene]);
 }
