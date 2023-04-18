@@ -5,17 +5,21 @@ export const script: Scene[] = [
     id: "intro",
     choices: [
       {
-        target: "test-1",
-        text: "Scene one",
+        target: "banana",
+        text: "🍌 Banana",
       },
       {
-        target: "test-2",
-        text: "Scene two",
+        target: "pasta",
+        text: "🍝 Pasta",
+      },
+      {
+        target: "ntm",
+        text: "???",
       },
     ],
   },
   {
-    id: "test-1",
+    id: "banana",
     choices: [
       {
         target: "intro",
@@ -24,7 +28,16 @@ export const script: Scene[] = [
     ],
   },
   {
-    id: "test-2",
+    id: "pasta",
+    choices: [
+      {
+        target: "intro",
+        text: "Go back",
+      },
+    ],
+  },
+  {
+    id: "ntm",
     choices: [
       {
         target: "intro",

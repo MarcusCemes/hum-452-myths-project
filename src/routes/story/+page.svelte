@@ -13,6 +13,7 @@
     dark = true;
 
     setTimeout(() => {
+      document.documentElement.requestFullscreen();
       goto("/story/intro");
     }, 1500);
   }
