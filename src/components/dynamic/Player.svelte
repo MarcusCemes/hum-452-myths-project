@@ -13,16 +13,32 @@
 
   /* == State == */
 
+  let element: HTMLVideoElement;
   let error = false;
 
   /* == Computed == */
 
   $: src = `${MEDIA_URL}/${scene.id}.mp4`;
+
+  /* == Functions == */
+
+  function onKeyDown(event: KeyboardEvent) {
+    if (event.key === "s") {
+      seekToEnd();
+    }
+  }
+
+  function seekToEnd() {
+    element.currentTime = element.duration;
+  }
 </script>
+
+<svelte:window on:keydown={onKeyDown} />
 
 <!-- svelte-ignore a11y-media-has-caption -->
 {#key scene.id}
   <video
+    bind:this={element}
     on:play
     on:ended
     on:error={() => (error = true)}
