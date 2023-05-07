@@ -14,7 +14,7 @@
 
     setTimeout(() => {
       document.documentElement.requestFullscreen();
-      goto("/story/intro");
+      goto("/story/prelude");
     }, 1500);
   }
 </script>

@@ -18,18 +18,21 @@
 
   /* == Computed == */
 
-  $: src = `${MEDIA_URL}/${scene.id}.mp4`;
+  $: {
+    if (scene) {
+      error = Boolean(element?.error);
+    }
+  }
+
+  $: src = `${MEDIA_URL}/${scene.src ?? scene.id}.mp4`;
 
   /* == Functions == */
 
   function onKeyDown(event: KeyboardEvent) {
     if (event.key === "s") {
-      seekToEnd();
+      element.pause();
+      dispatch("ended");
     }
-  }
-
-  function seekToEnd() {
-    element.currentTime = element.duration;
   }
 </script>
 
@@ -44,7 +47,6 @@
     on:error={() => (error = true)}
     autoplay
     class="w-full h-full"
-    class:opacity-0={error}
     controls={showControls}
   >
     <source type="video/mp4" {src} />
@@ -52,13 +54,14 @@
 {/key}
 
 {#if error}
-  <div class="absolute inset-0 flex flex-col justify-center items-center">
-    <h1 class="mb-2 font-semibold">Error loading video</h1>
+  <div class="absolute inset-0 flex flex-col justify-center items-center bg-white">
+    <h1 class="mb-8 text-3xl font-semibold">Error loading video</h1>
+
     <button
-      on:click={() => dispatch("retry")}
-      class="px-6 py-3 bg-white hover:bg-rose-600 hover:text-white font-semibold text-4xl rounded transition-colors duration-100 shadow-xl"
+      on:click={() => dispatch("ended")}
+      class="px-6 py-3 text-zinc-700 hover:bg-zinc-200 active:bg-zinc-300 font-semibold text-xl transition-colors duration-100 rounded"
     >
-      Retry
+      Skip
     </button>
   </div>
 {/if}

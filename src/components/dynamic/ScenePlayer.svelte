@@ -2,7 +2,7 @@
   import { goto } from "$app/navigation";
   import Choices from "$c/common/Choices.svelte";
   import Player from "$c/dynamic/Player.svelte";
-  import type { Choice, Scene } from "$lib/types.js";
+  import type { Action, Choice, Scene } from "$lib/types.js";
   import History from "./History.svelte";
 
   /* == Props == */
@@ -11,14 +11,14 @@
 
   /* == State == */
 
-  let showChoices = false;
+  let showChoices: Action | null = null;
   let showControls = false;
   let showHistory = false;
 
   /* == Functions == */
 
   async function onSelect(choice: CustomEvent<Choice>) {
-    showChoices = false;
+    showChoices = null;
     const { target } = choice.detail;
     await goto(`/story/${target}`, { replaceState: true });
   }
@@ -45,7 +45,11 @@
   }
 
   function onEnded() {
-    showChoices = true;
+    if ("choices" in scene) {
+      showChoices = scene;
+    } else {
+      goto(`/story/${scene.then}`, { replaceState: true });
+    }
   }
 </script>
 
@@ -54,7 +58,7 @@
 <Player on:ended={onEnded} {scene} {showControls} />
 
 {#if showChoices}
-  <Choices on:select={onSelect} choices={scene.choices} />
+  <Choices on:select={onSelect} action={showChoices} />
 {/if}
 
 {#if showHistory}
