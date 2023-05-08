@@ -5,6 +5,8 @@
 
   export let data;
 
+  $: console.log(data.scene.id);
+
   afterNavigate(() => {
     pushSceneToHistory(data.scene);
   });

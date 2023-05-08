@@ -48,7 +48,7 @@
     if ("choices" in scene) {
       showChoices = scene;
     } else {
-      goto(`/story/${scene.then}`, { replaceState: true });
+      goto(`/story/${"then" in scene ? scene.then : "epilogue"}`, { replaceState: true });
     }
   }
 </script>
