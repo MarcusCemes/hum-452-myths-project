@@ -152,13 +152,10 @@ const ecologyEndingSafeMaudeAction: Action = {
 
 export const script: Scene[] = [
   { id: "prelude", src: "0-prelude", then: "corridor" },
-  { id: "corridor", src: "1-corridor", ...classroomAction },
-  { id: "classroom-bible", src: "1-classroom", then: "bible" },
-  { id: "classroom-ovide", src: "1-classroom", then: "ovide" },
-  { id: "classroom-superwise", src: "1-classroom", then: "superwise" },
-  { id: "bible", src: "2-bible", then: "meetup" },
-  { id: "ovide", src: "2-ovide", then: "meetup" },
-  { id: "superwise", src: "2-superwise", then: "meetup" },
+  { id: "corridor", src: "1-classroom", ...classroomAction },
+  { id: "classroom-bible", src: "2B-summary", then: "meetup" },
+  { id: "classroom-ovide", src: "2O-summary", then: "meetup" },
+  { id: "classroom-superwise", src: "2S-summary", then: "meetup" },
 
   { id: "meetup", src: "3-meetup", ...meetupAction },
   { id: "panic-violence", src: "4V-panic", ...violenceAction },
@@ -189,10 +186,10 @@ export const script: Scene[] = [
 
   { id: "bunker-ecology-deadly", src: "6ED-bunker", ...ecologyBunkerDeadlyAction },
   { id: "bunker-ecology-safe", src: "6ES-bunker", ...ecologyBunkerSafeAction },
-  { id: "ending-ecology-deadly-gabor", src: "6EDG-ending", ...ecologyEndingDeadlyGaborAction },
-  { id: "ending-ecology-deadly-maude", src: "6EDM-ending", ...ecologyEndingDeadlyMaudeAction },
-  { id: "ending-ecology-safe-gabor", src: "6ESG-ending", ...ecologyEndingSafeGaborAction },
-  { id: "ending-ecology-safe-maude", src: "6ESM-ending", ...ecologyEndingSafeMaudeAction },
+  { id: "ending-ecology-deadly-gabor", src: "7EDG-ending", ...ecologyEndingDeadlyGaborAction },
+  { id: "ending-ecology-deadly-maude", src: "7EDM-ending", ...ecologyEndingDeadlyMaudeAction },
+  { id: "ending-ecology-safe-gabor", src: "7ESG-ending", ...ecologyEndingSafeGaborAction },
+  { id: "ending-ecology-safe-maude", src: "7ESM-ending", ...ecologyEndingSafeMaudeAction },
 
   { id: "catastrophe-ecology-gabor-drought", src: "8EGD-catastrophe", end: true },
   { id: "catastrophe-ecology-gabor-flood", src: "8EGF-catastrophe", end: true },
