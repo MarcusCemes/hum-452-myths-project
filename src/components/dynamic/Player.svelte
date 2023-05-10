@@ -48,6 +48,7 @@
     autoplay
     class="w-full h-full"
     controls={showControls}
+    controlsList="nofullscreen"
   >
     <source type="video/mp4" {src} />
   </video>
