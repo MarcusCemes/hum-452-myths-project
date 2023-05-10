@@ -191,15 +191,17 @@ export const script: Scene[] = [
   { id: "ending-ecology-safe-gabor", src: "7ESG-ending", ...ecologyEndingSafeGaborAction },
   { id: "ending-ecology-safe-maude", src: "7ESM-ending", ...ecologyEndingSafeMaudeAction },
 
-  { id: "catastrophe-ecology-gabor-drought", src: "8EGD-catastrophe", end: true },
-  { id: "catastrophe-ecology-gabor-flood", src: "8EGF-catastrophe", end: true },
-  { id: "catastrophe-ecology-gabor-virus", src: "8EGV-catastrophe", end: true },
-  { id: "catastrophe-ecology-gabor-zombie", src: "8EGZ-catastrophe", end: true },
-  { id: "catastrophe-ecology-maude-zombie", src: "8EGZ-catastrophe", end: true },
-  { id: "catastrophe-ecology-maude-drought", src: "8EMD-catastrophe", end: true },
-  { id: "catastrophe-ecology-maude-flood", src: "8EMF-catastrophe", end: true },
-  { id: "catastrophe-ecology-maude-virus", src: "8EMV-catastrophe", end: true },
-  { id: "catastrophe-ecology-maude-zombie", src: "8EMZ-catastrophe", end: true },
+  { id: "catastrophe-ecology-gabor-drought", src: "8EGD-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-gabor-flood", src: "8EGF-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-gabor-virus", src: "8EGV-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-gabor-zombie", src: "8EGZ-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-maude-zombie", src: "8EGZ-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-maude-drought", src: "8EMD-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-maude-flood", src: "8EMF-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-maude-virus", src: "8EMV-catastrophe", then: "credits" },
+  { id: "catastrophe-ecology-maude-zombie", src: "8EMZ-catastrophe", then: "credits" },
+
+  { id: "credits", src: "9-credits", end: true },
 ];
 
 export function getScene(id: string): Scene | undefined {
