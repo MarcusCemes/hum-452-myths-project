@@ -175,12 +175,12 @@ export const script: Scene[] = [
   { id: "ending-violence-combat-gabor", src: "6VCG-ending", ...violenceEndingCombatGaborAction },
   { id: "ending-violence-combat-maude", src: "6VCM-ending", ...violenceEndingCombatMaudeAction },
 
-  { id: "catastrophe-violence-gabor-enslavement", src: "8VGE-catastrophe", end: true },
-  { id: "catastrophe-violence-gabor-nuclear-warfare", src: "8VGN-catastrophe", end: true },
-  { id: "catastrophe-violence-gabor-open-warfare", src: "8VGO-catastrophe", end: true },
-  { id: "catastrophe-violence-maude-enslavement", src: "8VME-catastrophe", end: true },
-  { id: "catastrophe-violence-maude-nuclear-warfare", src: "8VMN-catastrophe", end: true },
-  { id: "catastrophe-violence-maude-open-warfare", src: "8VMO-catastrophe", end: true },
+  { id: "catastrophe-violence-gabor-enslavement", src: "8VGE-catastrophe", then: "credits" },
+  { id: "catastrophe-violence-gabor-nuclear-warfare", src: "8VGN-catastrophe", then: "credits" },
+  { id: "catastrophe-violence-gabor-open-warfare", src: "8VGO-catastrophe", then: "credits" },
+  { id: "catastrophe-violence-maude-enslavement", src: "8VME-catastrophe", then: "credits" },
+  { id: "catastrophe-violence-maude-nuclear-warfare", src: "8VMN-catastrophe", then: "credits" },
+  { id: "catastrophe-violence-maude-open-warfare", src: "8VMO-catastrophe", then: "credits" },
 
   /* == Ecology == */
 
