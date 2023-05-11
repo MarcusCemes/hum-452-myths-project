@@ -29,9 +29,18 @@
   /* == Functions == */
 
   function onKeyDown(event: KeyboardEvent) {
-    if (event.key === "s") {
-      element.pause();
-      dispatch("ended");
+    switch (event.key) {
+      case "s":
+        element.pause();
+        dispatch("ended");
+        break;
+
+      case " ":
+        if (element.paused) {
+          element.play();
+        } else {
+          element.pause();
+        }
     }
   }
 </script>
