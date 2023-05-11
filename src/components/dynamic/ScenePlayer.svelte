@@ -20,7 +20,7 @@
   async function onSelect(choice: CustomEvent<Choice>) {
     showChoices = null;
     const { target } = choice.detail;
-    await goto(`/story/${target}`, { replaceState: true });
+    await goto(`/story/${target}`);
   }
 
   function onKeyPress(event: KeyboardEvent) {
@@ -47,8 +47,11 @@
   function onEnded() {
     if ("choices" in scene) {
       showChoices = scene;
+    } else if ("then" in scene) {
+      goto(`/story/${scene.then}`);
     } else {
-      goto(`/story/${"then" in scene ? scene.then : "epilogue"}`, { replaceState: true });
+      document.exitFullscreen();
+      goto("/");
     }
   }
 </script>
