@@ -170,10 +170,10 @@ export const script: Scene[] = [
 
   { id: "bunker-violence-ai", src: "6VA-bunker", ...violenceBunkerAiAction },
   { id: "bunker-violence-combat", src: "6VC-bunker", ...violenceBunkerCombatAction },
-  { id: "ending-violence-ai-gabor", src: "6VAG-ending", ...violenceEndingAiGaborAction },
-  { id: "ending-violence-ai-maude", src: "6VAM-ending", ...violenceEndingAiMaudeAction },
-  { id: "ending-violence-combat-gabor", src: "6VCG-ending", ...violenceEndingCombatGaborAction },
-  { id: "ending-violence-combat-maude", src: "6VCM-ending", ...violenceEndingCombatMaudeAction },
+  { id: "ending-violence-ai-gabor", src: "7VAG-ending", ...violenceEndingAiGaborAction },
+  { id: "ending-violence-ai-maude", src: "7VAM-ending", ...violenceEndingAiMaudeAction },
+  { id: "ending-violence-combat-gabor", src: "7VCG-ending", ...violenceEndingCombatGaborAction },
+  { id: "ending-violence-combat-maude", src: "7VCM-ending", ...violenceEndingCombatMaudeAction },
 
   { id: "catastrophe-violence-gabor-enslavement", src: "8VGE-catastrophe", then: "credits" },
   { id: "catastrophe-violence-gabor-nuclear-warfare", src: "8VGN-catastrophe", then: "credits" },
