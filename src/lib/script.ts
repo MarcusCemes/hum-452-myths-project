@@ -2,6 +2,11 @@ import type { Action, Scene } from "$lib/types";
 
 /* == Introduction == */
 
+const preludeAction: Action = {
+  prompt: "",
+  choices: [{ target: "corridor", text: "Continue" }],
+};
+
 const classroomAction: Action = {
   prompt: "Which text would you like a reminder of?",
   choices: [
@@ -89,16 +94,16 @@ const violenceEndingAiMaudeAction: Action = {
 const violenceEndingCombatGaborAction: Action = {
   prompt: "Does the world fall into nuclear war?",
   choices: [
-    { target: "catastrophe-violence-gabor-nuclear-warfare", text: "Yes" },
-    { target: "catastrophe-violence-gabor-open-warfare", text: "No, just regular warfare" },
+    { target: "catastrophe-violence-nuclear-warfare", text: "Yes" },
+    { target: "catastrophe-violence-open-warfare", text: "No, just regular warfare" },
   ],
 };
 
 const violenceEndingCombatMaudeAction: Action = {
   prompt: "Does the world fall into nuclear war?",
   choices: [
-    { target: "catastrophe-violence-maude-nuclear-warfare", text: "Yes" },
-    { target: "catastrophe-violence-maude-open-warfare", text: "No, just regular warfare" },
+    { target: "catastrophe-violence-nuclear-warfare", text: "Yes" },
+    { target: "catastrophe-violence-open-warfare", text: "No, just regular warfare" },
   ],
 };
 
@@ -151,7 +156,7 @@ const ecologyEndingSafeMaudeAction: Action = {
 };
 
 export const script: Scene[] = [
-  { id: "prelude", src: "0-prelude", then: "corridor" },
+  { id: "prelude", src: "0-prelude", ...preludeAction },
   { id: "corridor", src: "1-classroom", ...classroomAction },
   { id: "classroom-bible", src: "2B-summary", then: "meetup" },
   { id: "classroom-ovide", src: "2O-summary", then: "meetup" },
@@ -175,12 +180,12 @@ export const script: Scene[] = [
   { id: "ending-violence-combat-gabor", src: "7VCG-ending", ...violenceEndingCombatGaborAction },
   { id: "ending-violence-combat-maude", src: "7VCM-ending", ...violenceEndingCombatMaudeAction },
 
+  { id: "catastrophe-violence-open-warfare", src: "8VO-catastrophe", then: "credits" },
+  { id: "catastrophe-violence-nuclear-warfare", src: "8VN-catastrophe", then: "credits" },
   { id: "catastrophe-violence-gabor-enslavement", src: "8VGE-catastrophe", then: "credits" },
   { id: "catastrophe-violence-gabor-nuclear-warfare", src: "8VGN-catastrophe", then: "credits" },
-  { id: "catastrophe-violence-gabor-open-warfare", src: "8VGO-catastrophe", then: "credits" },
   { id: "catastrophe-violence-maude-enslavement", src: "8VME-catastrophe", then: "credits" },
   { id: "catastrophe-violence-maude-nuclear-warfare", src: "8VMN-catastrophe", then: "credits" },
-  { id: "catastrophe-violence-maude-open-warfare", src: "8VMO-catastrophe", then: "credits" },
 
   /* == Ecology == */
 
