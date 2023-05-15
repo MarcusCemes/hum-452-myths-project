@@ -10,10 +10,15 @@ const preludeAction: Action = {
 const classroomAction: Action = {
   prompt: "Which text would you like a reminder of?",
   choices: [
-    { target: "classroom-bible", text: "Bible" },
-    { target: "classroom-ovide", text: "Ovide" },
-    { target: "classroom-superwise", text: "Superwise" },
+    { target: "classroom-bible", text: "Bible Genesis 6-9" },
+    { target: "classroom-ovid", text: "Ovid's Metamorphoses" },
+    { target: "classroom-superwise", text: "The Epic of Atrahasis" },
   ],
+};
+
+const summaryAction: Action = {
+  prompt: "",
+  choices: [{ target: "meetup", text: "Continue" }],
 };
 
 const meetupAction: Action = {
@@ -158,9 +163,9 @@ const ecologyEndingSafeMaudeAction: Action = {
 export const script: Scene[] = [
   { id: "prelude", src: "0-prelude", ...preludeAction },
   { id: "corridor", src: "1-classroom", ...classroomAction },
-  { id: "classroom-bible", src: "2B-summary", then: "meetup" },
-  { id: "classroom-ovide", src: "2O-summary", then: "meetup" },
-  { id: "classroom-superwise", src: "2S-summary", then: "meetup" },
+  { id: "classroom-bible", src: "2B-summary", ...summaryAction },
+  { id: "classroom-ovid", src: "2O-summary", ...summaryAction },
+  { id: "classroom-superwise", src: "2S-summary", ...summaryAction },
 
   { id: "meetup", src: "3-meetup", ...meetupAction },
   { id: "panic-violence", src: "4V-panic", ...violenceAction },
