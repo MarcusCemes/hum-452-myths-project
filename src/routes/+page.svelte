@@ -6,9 +6,17 @@
 
 <div class="mx-auto max-w-4xl h-full flex flex-col select-none">
   <div class="fade-in flex-1 mt-2 px-4 py-8" style:--delay="2s">
-    <a href="https://epfl.ch">
-      <img alt="EPFL" class="h-14 inline-block" src="/images/epfl-logo.svg" />
-    </a>
+    <div class="flex items-center">
+      <a href="https://epfl.ch">
+        <img alt="EPFL" class="h-14 inline-block" src="/images/epfl-logo.svg" />
+      </a>
+      <span class="flex-1 flex justify-end">
+        <a
+          class="p-2 opacity-70 hover:opacity-100 hover:bg-zinc-100 transition-all duration-100 rounded"
+          href="/bloopers">🥕</a
+        >
+      </span>
+    </div>
   </div>
 
   <div class="flex flex-col items-center">
