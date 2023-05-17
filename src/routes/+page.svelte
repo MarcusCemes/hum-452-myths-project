@@ -12,6 +12,7 @@
       </a>
       <span class="flex-1 flex justify-end">
         <a
+          use:interactionSounds
           class="p-2 opacity-70 hover:opacity-100 hover:bg-zinc-100 transition-all duration-100 rounded"
           href="/bloopers">🥕</a
         >
