@@ -2,11 +2,6 @@ import type { Action, Scene } from "$lib/types";
 
 /* == Introduction == */
 
-const preludeAction: Action = {
-  prompt: "",
-  choices: [{ target: "corridor", text: "Continue" }],
-};
-
 const classroomAction: Action = {
   prompt: "Which text would you like a reminder of?",
   choices: [
@@ -14,11 +9,6 @@ const classroomAction: Action = {
     { target: "classroom-ovid", text: "Ovid's Metamorphoses" },
     { target: "classroom-superwise", text: "The Epic of Atrahasis" },
   ],
-};
-
-const summaryAction: Action = {
-  prompt: "",
-  choices: [{ target: "meetup", text: "Continue" }],
 };
 
 const meetupAction: Action = {
@@ -161,11 +151,11 @@ const ecologyEndingSafeMaudeAction: Action = {
 };
 
 export const script: Scene[] = [
-  { id: "prelude", src: "0-prelude", ...preludeAction },
+  { id: "prelude", src: "0-prelude", then: "corridor" },
   { id: "corridor", src: "1-classroom", ...classroomAction },
-  { id: "classroom-bible", src: "2B-summary", ...summaryAction },
-  { id: "classroom-ovid", src: "2O-summary", ...summaryAction },
-  { id: "classroom-superwise", src: "2S-summary", ...summaryAction },
+  { id: "classroom-bible", src: "2B-summary", then: "meetup" },
+  { id: "classroom-ovid", src: "2O-summary", then: "meetup" },
+  { id: "classroom-superwise", src: "2S-summary", then: "meetup" },
 
   { id: "meetup", src: "3-meetup", ...meetupAction },
   { id: "panic-violence", src: "4V-panic", ...violenceAction },
