@@ -31,8 +31,8 @@ const violenceAction: Action = {
 const ecologyAction: Action = {
   prompt: "Should we put a banana skin in his path?",
   choices: [
-    { target: "panic-ecology-ending", text: "Yes" },
-    { target: "panic-violence-transition", text: "No" },
+    { target: "panic-ecology-ending", text: "Yes (🌱 ecology route)" },
+    { target: "panic-violence-transition", text: "No (💪 violence route)" },
   ],
 };
 
