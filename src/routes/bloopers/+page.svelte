@@ -7,7 +7,7 @@
     scene={{
       end: true,
       id: "bloopers",
-      src: "Bloopers",
+      src: "bloopers",
     }}
   />
 </div>
